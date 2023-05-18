@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--student class delcare as bean means IOC will handle it-->
+    <bean class="com.springcore.Student" name="student1">
+        <!--here is dependency injection and we are using setter injection-->
+       <property name="studentId">
+           <value>
+               10
+           </value>
+       </property>
+        <property name="studentName">
+            <value>
+                Amna
+            </value>
+        </property>
+        <property name="studentAddress">
+            <value>
+                Lahore
+            </value>
+        </property>
+        <property name="obj">
+            <ref bean="stuCourses1"></ref> <!--reference inject-->
+        </property>
+    </bean>
+    <bean class="com.springcore.Student" name="student2">
+        <!--here is dependency injection and we are using setter injection-->
+        <property name="studentId">
+            <value>
+                20
+            </value>
+        </property>
+        <property name="studentName">
+            <value>
+                Taizu
+            </value>
+        </property>
+        <property name="studentAddress">
+            <value>
+                Lahore
+            </value>
+        </property>
+        <property name="obj">
+            <ref bean="stuCourses"></ref>
+        </property>
+    </bean>
+    <bean class="com.springcore.Employee" name="employee1" init-method="init" destroy-method="destroy">
+        <property name="employeeId">
+            <value>
+                1
+            </value>
+        </property>
+        <property name="employeeName">
+            <value>
+                Maria
+            </value>
+        </property>
+        <property name="employeeAddress">
+            <list>
+                <value>Model town</value>
+                <value>Wahdat road</value>
+            </list>
+        </property>
+        <property name="employeeNumber">
+            <set>
+                <value>66583932</value>
+                <value>36372338</value>
+            </set>
+        </property>
+        <property name="employeePosition">
+            <map>
+                <entry key="1" value="java developer"></entry>
+
+            </map>
+        </property>
+        <property name="employeeRank">
+            <props>
+                <prop key="1">Associate Software Engineer</prop>
+            </props>
+        </property>
+    </bean>
+    <bean class="com.springcore.Courses" name="stuCourses">
+        <property name="courseName">
+            <map>
+                <entry key="102" value="DSA"></entry>
+            </map>
+        </property>
+        <property name="creditHours">
+            <value>4</value>
+        </property>
+
+    </bean>
+    <bean class="com.springcore.Courses" name="stuCourses1">
+        <property name="courseName">
+            <map>
+                <entry key="105" value="OOP"></entry>
+            </map>
+        </property>
+        <property name="creditHours">
+            <value>3</value>
+        </property>
+
+    </bean>
+
+</beans>
